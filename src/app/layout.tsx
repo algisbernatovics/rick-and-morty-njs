@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "Rick and Morty - Next.js Rewrite",
+  title: "Rick & Morty",
   description: "A premium Rick and Morty explorer built with Next.js",
 };
 

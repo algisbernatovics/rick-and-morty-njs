@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Search, Menu, X, Users, Tv, MapPin } from "lucide-react";
+import { Search, Menu, X, Users, Tv, MapPin, Info } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -22,6 +22,11 @@ const navItems = [
         name: "Locations",
         href: "/locations",
         activePrefixes: ["/locations", "/location"]
+    },
+    {
+        name: "About",
+        href: "/about",
+        activePrefixes: ["/about"]
     },
 ];
 
@@ -66,6 +71,7 @@ export function Navbar() {
                                         {item.name === "Characters" && <Users size={18} className="shrink-0" />}
                                         {item.name === "Episodes" && <Tv size={18} className="shrink-0" />}
                                         {item.name === "Locations" && <MapPin size={18} className="shrink-0" />}
+                                        {item.name === "About" && <Info size={18} className="shrink-0" />}
                                         {item.name}
                                         {isActive && (
                                             <motion.div
@@ -121,6 +127,7 @@ export function Navbar() {
                                         {item.name === "Characters" && <Users size={20} className="shrink-0" />}
                                         {item.name === "Episodes" && <Tv size={20} className="shrink-0" />}
                                         {item.name === "Locations" && <MapPin size={20} className="shrink-0" />}
+                                        {item.name === "About" && <Info size={20} className="shrink-0" />}
                                         {item.name}
                                     </Link>
                                 );

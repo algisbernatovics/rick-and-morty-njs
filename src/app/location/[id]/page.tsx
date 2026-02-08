@@ -32,7 +32,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     <p className="text-secondary font-black tracking-[0.3em] uppercase mb-4 animate-fade-in group">
                         {location.type} • {location.dimension}
                     </p>
-                    <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-8 uppercase leading-none italic bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                    <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-8 uppercase leading-none bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
                         {location.name}
                     </h1>
 
@@ -57,7 +57,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 <section>
                     <div className="flex items-center gap-3 mb-8">
                         <MapPin className="text-secondary" size={32} />
-                        <h2 className="text-3xl font-black tracking-tight text-white uppercase italic">
+                        <h2 className="text-3xl font-black tracking-tight text-white uppercase">
                             Characters featured in location &apos;{location.name}&apos;
                         </h2>
                     </div>
