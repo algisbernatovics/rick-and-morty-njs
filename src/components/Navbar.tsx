@@ -31,20 +31,27 @@ export function Navbar() {
 
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-8">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className={cn(
-                                        "px-3 py-2 rounded-md text-sm font-bold transition-all hover:text-primary",
-                                        pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
-                                            ? "text-primary border-b-2 border-primary rounded-none"
-                                            : "text-muted-foreground"
-                                    )}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
+                            {navItems.map((item) => {
+                                const isActive =
+                                    (item.name === "Characters" && (pathname === "/" || pathname.startsWith("/character"))) ||
+                                    (item.name === "Episodes" && (pathname.startsWith("/episodes") || pathname.startsWith("/episode/"))) ||
+                                    (item.name === "Locations" && (pathname.startsWith("/locations") || pathname.startsWith("/location/")));
+
+                                return (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        className={cn(
+                                            "px-3 py-2 rounded-md text-sm font-bold transition-all hover:text-primary",
+                                            isActive
+                                                ? "text-primary border-b-2 border-primary rounded-none"
+                                                : "text-muted-foreground"
+                                        )}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                );
+                            })}
                         </div>
                     </div>
 
@@ -68,19 +75,26 @@ export function Navbar() {
                         className="md:hidden glass border-t border-white/10"
                     >
                         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className={cn(
-                                        "block px-3 py-4 rounded-md text-base font-medium",
-                                        pathname === item.href ? "text-primary bg-white/5" : "text-muted-foreground"
-                                    )}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
+                            {navItems.map((item) => {
+                                const isActive =
+                                    (item.name === "Characters" && (pathname === "/" || pathname.startsWith("/character"))) ||
+                                    (item.name === "Episodes" && (pathname.startsWith("/episodes") || pathname.startsWith("/episode/"))) ||
+                                    (item.name === "Locations" && (pathname.startsWith("/locations") || pathname.startsWith("/location/")));
+
+                                return (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className={cn(
+                                            "block px-3 py-4 rounded-md text-base font-medium",
+                                            isActive ? "text-primary bg-white/5" : "text-muted-foreground"
+                                        )}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                );
+                            })}
                         </div>
                     </motion.div>
                 )}
