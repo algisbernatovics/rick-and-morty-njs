@@ -23,9 +23,9 @@ export default async function LocationsPage({ searchParams }: LocationsProps) {
         return (
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <header className="mb-12">
-                    <div className="flex items-center gap-4 mb-4">
-                        <MapPin className="text-secondary" size={40} />
-                        <h1 className="text-5xl md:text-7xl font-black tracking-tighter bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                    <div className="flex items-center gap-4 mb-6">
+                        <MapPin className="text-secondary shrink-0" size={56} strokeWidth={2.5} />
+                        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-secondary">
                             LOCATIONS
                         </h1>
                     </div>

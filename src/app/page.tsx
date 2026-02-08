@@ -1,7 +1,7 @@
 import { rickAndMortyApi } from "@/lib/api";
 import { CharacterCard } from "@/components/CharacterCard";
 import { Pagination } from "@/components/Pagination";
-import { Search } from "lucide-react";
+import { Search, Users } from "lucide-react";
 
 interface HomeProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -22,9 +22,12 @@ export default async function Home({ searchParams }: HomeProps) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <header className="mb-12">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            CHARACTERS
-          </h1>
+          <div className="flex items-center gap-4 mb-6">
+            <Users className="text-primary shrink-0" size={56} strokeWidth={2.5} />
+            <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-primary">
+              CHARACTERS
+            </h1>
+          </div>
 
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             <form action="/" className="relative w-full md:max-w-md">

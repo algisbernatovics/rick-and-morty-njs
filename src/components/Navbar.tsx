@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, Users, Tv, MapPin } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -59,10 +59,13 @@ export function Navbar() {
                                         key={item.name}
                                         href={item.href}
                                         className={cn(
-                                            "relative px-3 py-2 text-sm font-bold transition-all hover:text-primary",
+                                            "relative px-3 py-2 text-sm font-bold transition-all hover:text-primary flex items-center gap-2",
                                             isActive ? "text-primary" : "text-muted-foreground"
                                         )}
                                     >
+                                        {item.name === "Characters" && <Users size={18} className="shrink-0" />}
+                                        {item.name === "Episodes" && <Tv size={18} className="shrink-0" />}
+                                        {item.name === "Locations" && <MapPin size={18} className="shrink-0" />}
                                         {item.name}
                                         {isActive && (
                                             <motion.div
@@ -111,10 +114,13 @@ export function Navbar() {
                                         href={item.href}
                                         onClick={() => setIsOpen(false)}
                                         className={cn(
-                                            "block px-3 py-4 rounded-md text-base font-medium transition-colors",
+                                            "block px-3 py-4 rounded-md text-base font-medium transition-colors flex items-center gap-3",
                                             isActive ? "text-primary bg-white/5" : "text-muted-foreground hover:text-primary hover:bg-white/5"
                                         )}
                                     >
+                                        {item.name === "Characters" && <Users size={20} className="shrink-0" />}
+                                        {item.name === "Episodes" && <Tv size={20} className="shrink-0" />}
+                                        {item.name === "Locations" && <MapPin size={20} className="shrink-0" />}
                                         {item.name}
                                     </Link>
                                 );
