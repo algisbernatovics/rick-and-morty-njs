@@ -55,9 +55,9 @@ export default async function EpisodePage({ params }: EpisodePageProps) {
                 </header>
 
                 <section>
-                    <div className="flex items-center gap-3 mb-8">
+                    <div className="flex items-center justify-center gap-3 mb-8">
                         <Tv className="text-primary" size={32} />
-                        <h2 className="text-3xl font-black tracking-tight text-white uppercase">
+                        <h2 className="text-3xl font-black tracking-tight text-white uppercase text-center">
                             Characters Featured in Episode &apos;{episode.name}&apos;
                         </h2>
                     </div>

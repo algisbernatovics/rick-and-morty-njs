@@ -55,9 +55,9 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 </header>
 
                 <section>
-                    <div className="flex items-center gap-3 mb-8">
+                    <div className="flex items-center justify-center gap-3 mb-8">
                         <MapPin className="text-secondary" size={32} />
-                        <h2 className="text-3xl font-black tracking-tight text-white uppercase">
+                        <h2 className="text-3xl font-black tracking-tight text-white uppercase text-center">
                             Characters featured in location &apos;{location.name}&apos;
                         </h2>
                     </div>
