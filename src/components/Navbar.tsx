@@ -8,14 +8,34 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-    { name: "Characters", href: "/" },
-    { name: "Episodes", href: "/episodes" },
-    { name: "Locations", href: "/locations" },
+    {
+        name: "Characters",
+        href: "/",
+        activePrefixes: ["/", "/character"]
+    },
+    {
+        name: "Episodes",
+        href: "/episodes",
+        activePrefixes: ["/episodes", "/episode"]
+    },
+    {
+        name: "Locations",
+        href: "/locations",
+        activePrefixes: ["/locations", "/location"]
+    },
 ];
 
 export function Navbar() {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+
+    const checkActive = (item: typeof navItems[0]) => {
+        if (item.name === "Characters" && pathname === "/") return true;
+        if (item.name === "Characters" && pathname.startsWith("/character")) return true;
+        return item.activePrefixes.some(prefix =>
+            prefix !== "/" && pathname.startsWith(prefix)
+        );
+    };
 
     return (
         <nav className="sticky top-0 z-50 w-full glass">
@@ -32,23 +52,30 @@ export function Navbar() {
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-8">
                             {navItems.map((item) => {
-                                const isActive =
-                                    (item.name === "Characters" && (pathname === "/" || pathname.startsWith("/character"))) ||
-                                    (item.name === "Episodes" && (pathname.startsWith("/episodes") || pathname.startsWith("/episode/"))) ||
-                                    (item.name === "Locations" && (pathname.startsWith("/locations") || pathname.startsWith("/location/")));
+                                const isActive = checkActive(item);
 
                                 return (
                                     <Link
                                         key={item.name}
                                         href={item.href}
                                         className={cn(
-                                            "px-3 py-2 rounded-md text-sm font-bold transition-all hover:text-primary",
-                                            isActive
-                                                ? "text-primary border-b-2 border-primary rounded-none"
-                                                : "text-muted-foreground"
+                                            "relative px-3 py-2 text-sm font-bold transition-all hover:text-primary",
+                                            isActive ? "text-primary" : "text-muted-foreground"
                                         )}
                                     >
                                         {item.name}
+                                        {isActive && (
+                                            <motion.div
+                                                layoutId="active-nav"
+                                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                                                initial={false}
+                                                transition={{
+                                                    type: "spring",
+                                                    stiffness: 380,
+                                                    damping: 30
+                                                }}
+                                            />
+                                        )}
                                     </Link>
                                 );
                             })}
@@ -76,10 +103,7 @@ export function Navbar() {
                     >
                         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                             {navItems.map((item) => {
-                                const isActive =
-                                    (item.name === "Characters" && (pathname === "/" || pathname.startsWith("/character"))) ||
-                                    (item.name === "Episodes" && (pathname.startsWith("/episodes") || pathname.startsWith("/episode/"))) ||
-                                    (item.name === "Locations" && (pathname.startsWith("/locations") || pathname.startsWith("/location/")));
+                                const isActive = checkActive(item);
 
                                 return (
                                     <Link
@@ -87,8 +111,8 @@ export function Navbar() {
                                         href={item.href}
                                         onClick={() => setIsOpen(false)}
                                         className={cn(
-                                            "block px-3 py-4 rounded-md text-base font-medium",
-                                            isActive ? "text-primary bg-white/5" : "text-muted-foreground"
+                                            "block px-3 py-4 rounded-md text-base font-medium transition-colors",
+                                            isActive ? "text-primary bg-white/5" : "text-muted-foreground hover:text-primary hover:bg-white/5"
                                         )}
                                     >
                                         {item.name}
