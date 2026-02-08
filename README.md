@@ -41,7 +41,7 @@ A premium, modern web application built with **Next.js 15**, **TypeScript**, and
 1. Clone the repository (if applicable).
 2. Navigate to the project directory:
    ```bash
-   cd rickmorty-js
+   cd rickmorty-njs
    ```
 3. Install dependencies:
    ```bash
@@ -70,12 +70,6 @@ npm run start
 - `src/lib/`: Unified API client and utility functions.
 - `src/types/`: Centralized TypeScript interfaces.
 - `src/hooks/`: Custom React hooks (if any).
-
-## 🧪 Documentation
-
-For more details on the implementation and architectural decisions made during the rewrite, please refer to the internal artifacts:
-- [Implementation Plan](./.gemini/antigravity/brain/8ffb8b80-329e-4f1a-8210-93499520a9cd/implementation_plan.md)
-- [Project Walkthrough](./.gemini/antigravity/brain/8ffb8b80-329e-4f1a-8210-93499520a9cd/walkthrough.md)
 
 ---
 
