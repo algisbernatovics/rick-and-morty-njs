@@ -1,15 +1,24 @@
+import type { Metadata } from "next";
 import { Github, ExternalLink, Heart } from "lucide-react";
 import Link from "next/link";
+import { createMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createMetadata({
+    title: "About Rick and Morty Explorer",
+    description:
+        "Learn about Rick and Morty Explorer, a Next.js guide for browsing characters, episodes, and locations from the Rick and Morty API.",
+    path: "/about",
+});
 
 export default function AboutPage() {
     return (
         <div className="max-w-4xl mx-auto px-4 py-16">
             <header className="mb-16 text-center">
                 <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 uppercase">
-                    About the <span className="text-primary">App</span>
+                    About the <span className="text-primary">Guide</span>
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium">
-                    This project is a high-performance, visually stunning explorer for the Rick and Morty universe, built with modern web technologies.
+                    Rick and Morty Explorer is an English-language guide for browsing characters, episodes, and locations from the series with fast search and linked detail pages.
                 </p>
             </header>
 
