@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Github, ExternalLink, Heart, Mail, Linkedin, Code2 } from "lucide-react";
+import { Github, ExternalLink, Heart, Mail, Linkedin, Code2, RefreshCw } from "lucide-react";
 import Link from "next/link";
 import { createMetadata } from "@/lib/seo";
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
 
                 <section className="glass p-8 md:p-12 rounded-3xl border-l-4 border-primary">
                     <div className="flex items-center gap-4 mb-6">
-                        <Heart className="text-primary" size={32} />
+                        <RefreshCw className="text-primary" size={32} />
                         <h2 className="text-3xl font-black tracking-tight text-white uppercase">What Changed in the Rewrite</h2>
                     </div>
                     <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
