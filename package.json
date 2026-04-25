@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "predev": "rm -f .next/dev/lock",
+    "dev": "next dev --webpack",
+    "dev:turbo": "rm -f .next/dev/lock && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
