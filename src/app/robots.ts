@@ -8,6 +8,5 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: getAbsoluteUrl("/sitemap.xml"),
-    host: getAbsoluteUrl("/"),
   };
 }
